@@ -1,22 +1,65 @@
-# ♠️ Week08 Bootcamp2019a Project: Matching Card Game
+🎃 Card Matching Game
+<img width="1439" height="781" alt="Screenshot 2026-10-06 at 6 35 32 AM" src="https://github.com/user-attachments/assets/9ced357d-3ca3-46e3-b816-40b5ac85cdaf" />
+Description
 
-### Goal: Make a 10 card memory game - users must be able to select two cards and check if they are a match. If they are a match, they stay flipped. If not, they flip back over. Game is done when all cards are matched and flipped over. Example: http://www.fruit-burst.co.uk/fun-and-games/pairs-game 
+The Card Matching Game is a simple memory game built using HTML, CSS, and JavaScript.
 
-### How to submit your code for review:
+The game contains 10 cards with 5 matching pairs of emojis. The player selects two cards at a time and tries to find all of the matching pairs.
 
-- Fork and clone this repo
-- Create a new branch called answer
-- Checkout answer branch
-- Push to your fork
-- Issue a pull request
-- Your pull request description should contain the following:
-  - (1 to 5 no 3) I completed the challenge
-  - (1 to 5 no 3) I feel good about my code
-  - Anything specific on which you want feedback!
+If the two selected cards match, they stay revealed. If they do not match, the cards are hidden again so the player can try another pair.
 
-Example:
-```
-I completed the challenge: 5
-I feel good about my code: 4
-I'm not sure if my constructors are setup cleanly...
-```
+The goal is to find all 5 matching pairs and complete the game.
+
+🎮 How the Game Works
+
+The player clicks a card to reveal its emoji.
+
+The player clicks a second card.
+
+JavaScript compares the values of the two cards.
+
+If the cards match, the match is counted.
+
+If they do not match, the cards are hidden again.
+
+The player continues until all 5 pairs have been found.
+
+🛠️ Tech Stack
+
+HTML
+
+HTML creates the structure of the game, including the 10 clickable card buttons.
+
+CSS
+
+CSS styles the cards and controls the layout and appearance of the game.
+
+JavaScript
+
+JavaScript controls the game functionality. It handles card clicks, reveals the emojis, compares the selected cards, keeps track of matches, and determines when the player has found all of the pairs.
+
+💡 Skills Practiced
+
+JavaScript variables
+
+Arrays
+
+querySelectorAll()
+
+Array.from()
+
+forEach()
+
+Event listeners
+
+if/else statements
+
+DOM manipulation
+
+Comparing values
+
+Keeping track of game progress
+
+🎯 Goal
+
+Find all 5 matching emoji pairs to complete the game!
