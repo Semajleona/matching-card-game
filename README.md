@@ -1,65 +1,79 @@
-🎃 Card Matching Game
+
 <img width="1439" height="781" alt="Screenshot 2026-10-06 at 6 35 32 AM" src="https://github.com/user-attachments/assets/9ced357d-3ca3-46e3-b816-40b5ac85cdaf" />
-Description
+https://matching-card-game-wi6y.onrender.com/
 
-The Card Matching Game is a simple memory game built using HTML, CSS, and JavaScript.
+# 🎃 Card Matching Game
 
-The game contains 10 cards with 5 matching pairs of emojis. The player selects two cards at a time and tries to find all of the matching pairs.
+## 📌 Project Description
 
-If the two selected cards match, they stay revealed. If they do not match, the cards are hidden again so the player can try another pair.
+Card Matching Game is an interactive memory game where players flip cards to find matching emoji pairs. The game features 10 cards containing 5 matching pairs. Players must remember card positions and find all matching pairs to win.
 
-The goal is to find all 5 matching pairs and complete the game.
+## ✨ Features
 
-🎮 How the Game Works
+- **Interactive Cards:** Click cards to reveal hidden emojis.
+- **Matching Logic:** Compare two selected cards to determine whether they match.
+- **Card Reset:** Nonmatching cards are hidden again.
+- **Match Tracking:** Keep track of successfully matched pairs.
+- **Winning Goal:** Find all 5 matching pairs to complete the game.
 
-The player clicks a card to reveal its emoji.
+## 🛠️ Tech Stack
 
-The player clicks a second card.
+- **HTML5:** Structures the game and clickable cards.
+- **CSS3:** Styles the cards, layout, and overall appearance.
+- **JavaScript:** Handles card selections, matching logic, and game progress.
+- **Node.js:** Runs the server and handles API requests for comparing selected cards.
 
-JavaScript compares the values of the two cards.
+## 💡 What I Learned
 
-If the cards match, the match is counted.
+Through this project, I practiced:
 
-If they do not match, the cards are hidden again.
+- Using JavaScript variables and arrays to manage game data.
+- Selecting HTML elements with `querySelectorAll()`.
+- Using `Array.from()` and `forEach()` to work with multiple elements.
+- Adding event listeners to make cards interactive.
+- Writing conditional statements to compare selected cards.
+- Manipulating the DOM to reveal and hide emojis.
+- Tracking game progress using JavaScript.
+- Working with a Node.js server and API responses.
 
-The player continues until all 5 pairs have been found.
+## 🚀 Installation
 
-🛠️ Tech Stack
+1. Clone the repository:
 
-HTML
+   ```bash
+   git clone https://github.com/Semajleona/matching-card-game.git
+   ```
 
-HTML creates the structure of the game, including the 10 clickable card buttons.
+2. Navigate into the project folder:
 
-CSS
+   ```bash
+   cd matching-card-game
+   ```
 
-CSS styles the cards and controls the layout and appearance of the game.
+3. Install dependencies:
 
-JavaScript
+   ```bash
+   npm install
+   ```
 
-JavaScript controls the game functionality. It handles card clicks, reveals the emojis, compares the selected cards, keeps track of matches, and determines when the player has found all of the pairs.
+4. Start the server:
 
-💡 Skills Practiced
+   ```bash
+   npm start
+   ```
 
-JavaScript variables
+5. Open your browser and visit:
 
-Arrays
+   ```text
+   http://localhost:8000
+   ```
 
-querySelectorAll()
+## 🎮 How to Play
 
-Array.from()
+1. Click a card to reveal its emoji.
+2. Select a second card.
+3. If the emojis match, the cards stay revealed.
+4. If they don't match, the cards are hidden again.
+5. Continue until you find all 5 matching pairs!
 
-forEach()
 
-Event listeners
-
-if/else statements
-
-DOM manipulation
-
-Comparing values
-
-Keeping track of game progress
-
-🎯 Goal
-
-Find all 5 matching emoji pairs to complete the game!
