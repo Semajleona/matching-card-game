@@ -1,0 +1,10 @@
+
+{
+  "name": "matching-card-game",
+  "version": "1.0.0",
+  "description": "Matching Card Memory Game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
