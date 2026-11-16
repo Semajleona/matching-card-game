@@ -1,9 +1,11 @@
 
+
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
 const url = require('url')
 
+// CREATE SERVER
 const server = http.createServer((req, res) => {
 
     const parsedUrl = url.parse(req.url, true)
@@ -37,6 +39,7 @@ const server = http.createServer((req, res) => {
             }
 
         } else {
+
             res.end(JSON.stringify({
                 error: 'Please select two cards'
             }))
@@ -45,23 +48,58 @@ const server = http.createServer((req, res) => {
         return
     }
 
-    // SERVE HTML, CSS, AND JAVASCRIPT
+    // SERVE HTML, CSS, JAVASCRIPT, AND IMAGES
+
     let filePath = ''
 
     if (page === '/') {
         filePath = 'index.html'
-    } else if (page === '/style.css') {
-        filePath = 'style.css'
-    } else if (page === '/main.js') {
-        filePath = 'main.js'
     } else {
+        try {
+            filePath = decodeURIComponent(page).replace(/^\/+/, '')
+        } catch (error) {
+            res.writeHead(400)
+            res.end('Invalid file path')
+            return
+        }
+    }
+
+    const fullPath = path.resolve(__dirname, filePath)
+
+    // PREVENT ACCESS OUTSIDE PROJECT FOLDER
+    if (
+        fullPath !== __dirname &&
+        !fullPath.startsWith(__dirname + path.sep)
+    ) {
+        res.writeHead(403)
+        res.end('Forbidden')
+        return
+    }
+
+    // FILE TYPES
+    const extension = path.extname(fullPath).toLowerCase()
+
+    const contentTypes = {
+        '.html': 'text/html',
+        '.css': 'text/css',
+        '.js': 'application/javascript',
+        '.png': 'image/png',
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.gif': 'image/gif',
+        '.webp': 'image/webp',
+        '.svg': 'image/svg+xml',
+        '.ico': 'image/x-icon'
+    }
+
+    // ONLY SERVE SUPPORTED FILE TYPES
+    if (!contentTypes[extension]) {
         res.writeHead(404)
         res.end('Page not found')
         return
     }
 
-    const fullPath = path.join(__dirname, filePath)
-
+    // READ AND DISPLAY FILE
     fs.readFile(fullPath, (err, content) => {
 
         if (err) {
@@ -70,26 +108,18 @@ const server = http.createServer((req, res) => {
             return
         }
 
-        let contentType = 'text/html'
-
-        if (filePath.endsWith('.css')) {
-            contentType = 'text/css'
-        }
-
-        if (filePath.endsWith('.js')) {
-            contentType = 'application/javascript'
-        }
-
         res.writeHead(200, {
-            'Content-Type': contentType
+            'Content-Type': contentTypes[extension]
         })
 
         res.end(content)
     })
 })
 
+// RENDER PORT
 const PORT = process.env.PORT || 8000
 
 server.listen(PORT, '0.0.0.0', () => {
     console.log(`Matching Card Game running on port ${PORT}`)
 })
+
